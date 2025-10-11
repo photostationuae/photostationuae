@@ -1,0 +1,7 @@
+{
+  "name": "Photo Station For Parties",
+  "description": "A classic and elegant website for Photo Station For Parties, a premium photo booth rental company in the UAE. Showcasing services like 360 Video Booth, Magic Mirror, AI Photo Booth, and Audio Guest Rooms.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
