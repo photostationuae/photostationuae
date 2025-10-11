@@ -4,6 +4,7 @@ import { Language, t } from '../i18n/index';
 import { MenuIcon } from './icons/MenuIcon';
 import { CloseIcon } from './icons/CloseIcon';
 import { useAuth } from '../contexts/AuthContext';
+import { Logo } from './icons/Logo';
 
 interface HeaderProps {
     navigate: (page: Page) => void;
@@ -18,11 +19,12 @@ const Header: React.FC<HeaderProps> = ({ navigate, currentPage, lang, setLang })
 
     const navLinks = [
         { page: Page.Home, key: 'navHome' },
-        { page: Page.About, key: 'navAbout' },
-        { page: Page.VideoBooth360, key: 'navVideoBooth360' },
+        { page: Page.MagicMirror, key: 'navMagicMirror' },
+        { page: Page.AIBooth, key: 'navAIBooth' },
+        { page: Page.MusicPhotoBooth, key: 'navMusicPhotoBooth' },
         { page: Page.AudioGuestRoom, key: 'navAudioGuestRoom' },
-        { page: Page.AlbumPrinting, key: 'navAlbumPrinting' },
-        { page: Page.LEDScreen, key: 'navLEDScreen' },
+        { page: Page.VideoBooth360, key: 'navVideoBooth360' },
+        { page: Page.About, key: 'navAbout' },
         { page: Page.Clients, key: 'navClients' },
         { page: Page.Reviews, key: 'navReviews' },
         { page: Page.Contact, key: 'navContact' },
@@ -55,9 +57,8 @@ const Header: React.FC<HeaderProps> = ({ navigate, currentPage, lang, setLang })
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <a href="#home" onClick={(e) => { e.preventDefault(); navigate(Page.Home); }} className="text-2xl font-bold">
-                            <span className="text-gray-800">{t(lang, 'logoPart1')}</span>
-                            <span className="text-purple-600">{t(lang, 'logoPart2')}</span>
+                        <a href="#home" onClick={(e) => { e.preventDefault(); navigate(Page.Home); }} className="flex-shrink-0">
+                           <Logo className="h-10 w-auto" />
                         </a>
                     </div>
                     <div className="hidden md:flex md:items-center md:space-x-4">
@@ -71,10 +72,7 @@ const Header: React.FC<HeaderProps> = ({ navigate, currentPage, lang, setLang })
                                 </button>
                             </>
                         ) : (
-                            <>
-                                <NavLink page={Page.Login} translationKey="navLogin" />
-                                <NavLink page={Page.SignUp} translationKey="navSignUp" />
-                            </>
+                            <NavLink page={Page.Login} translationKey="navLogin" />
                         )}
                         <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-200">
                             {lang === 'en' ? 'العربية' : 'English'}
@@ -100,10 +98,7 @@ const Header: React.FC<HeaderProps> = ({ navigate, currentPage, lang, setLang })
                                     </a>
                                 </>
                             ) : (
-                                <>
-                                    <NavLink page={Page.Login} translationKey="navLogin" />
-                                    <NavLink page={Page.SignUp} translationKey="navSignUp" />
-                                </>
+                                <NavLink page={Page.Login} translationKey="navLogin" />
                             )}
                             <a href="#" onClick={(e) => { e.preventDefault(); setLang(lang === 'en' ? 'ar' : 'en'); }} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-black">
                                 {lang === 'en' ? 'العربية' : 'English'}

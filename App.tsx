@@ -8,9 +8,11 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import VideoBooth360Page from './pages/VideoBooth360Page';
+import MagicMirrorPage from './pages/MagicMirrorPage';
 import AudioGuestRoomPage from './pages/AudioGuestRoomPage';
 import AlbumPrintingPage from './pages/AlbumPrintingPage';
 import AIBoothPage from './pages/AIBoothPage';
+import MusicPhotoBoothPage from './pages/MusicPhotoBoothPage';
 import LEDScreenPage from './pages/LEDScreenPage';
 import ClientsPage from './pages/ClientsPage';
 import ReviewsPage from './pages/ReviewsPage';
@@ -43,6 +45,8 @@ const App: React.FC = () => {
                 return <AboutPage {...props} />;
             case Page.VideoBooth360:
                 return <VideoBooth360Page {...props} />;
+            case Page.MagicMirror:
+                return <MagicMirrorPage {...props} />;
             case Page.AudioGuestRoom:
                 return <AudioGuestRoomPage {...props} />;
             case Page.AlbumPrinting:
@@ -51,6 +55,8 @@ const App: React.FC = () => {
                 return <LEDScreenPage {...props} />;
             case Page.AIBooth:
                 return <AIBoothPage {...props} />;
+            case Page.MusicPhotoBooth:
+                return <MusicPhotoBoothPage {...props} />;
             case Page.Clients:
                 return <ClientsPage {...props} />;
             case Page.Reviews:

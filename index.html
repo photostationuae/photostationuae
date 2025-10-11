@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photo Station For Parties - Premium Photo Booths in UAE</title>
+    <title>Photo Station - Premium Photo Booths in UAE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,22 @@
             font-family: 'Cairo', sans-serif;
             font-weight: 700;
         }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee-rtl {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+        }
+        html[dir="rtl"] .animate-marquee {
+             animation: marquee-rtl 40s linear infinite;
+        }
+
     </style>
 <script type="importmap">
 {

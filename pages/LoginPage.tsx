@@ -45,6 +45,18 @@ const LoginPage: React.FC<BasePageProps> = ({ navigate, lang }) => {
                             </button>
                         </div>
                     </form>
+                    <div className="text-center mt-6 text-sm">
+                        <p className="text-gray-600">
+                            {t(lang, 'loginPrompt')}{' '}
+                            <a 
+                                href="#signup" 
+                                onClick={(e) => { e.preventDefault(); navigate(Page.SignUp); }} 
+                                className="font-medium text-purple-600 hover:underline"
+                            >
+                                {t(lang, 'loginLink')}
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

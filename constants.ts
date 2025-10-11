@@ -11,7 +11,7 @@ export const services: Omit<Service, 'title' | 'description'>[] = [
         titleKey: 'serviceMirrorTitle',
         descriptionKey: 'serviceMirrorDesc',
         imageUrl: 'https://picsum.photos/seed/classicmirror/600/400',
-        page: Page.Home, 
+        page: Page.MagicMirror, 
     },
     {
         titleKey: 'serviceAITitle',
@@ -19,6 +19,12 @@ export const services: Omit<Service, 'title' | 'description'>[] = [
         imageUrl: 'https://picsum.photos/seed/futurebooth/600/400',
         isAI: true,
         page: Page.AIBooth,
+    },
+    {
+        titleKey: 'serviceMusicTitle',
+        descriptionKey: 'serviceMusicDesc',
+        imageUrl: 'https://picsum.photos/seed/musicbooth/600/400',
+        page: Page.MusicPhotoBooth,
     },
     {
         titleKey: 'serviceAudioTitle',
@@ -88,4 +94,12 @@ export const clients: Client[] = [
     { nameKey: 'client6Name', logoUrl: 'https://picsum.photos/seed/logo6/200/100' },
     { nameKey: 'client7Name', logoUrl: 'https://picsum.photos/seed/logo7/200/100' },
     { nameKey: 'client8Name', logoUrl: 'https://picsum.photos/seed/logo8/200/100' },
+    { nameKey: 'client1Name', logoUrl: 'https://picsum.photos/seed/logo9/200/100' },
+    { nameKey: 'client2Name', logoUrl: 'https://picsum.photos/seed/logo10/200/100' },
+    { nameKey: 'client3Name', logoUrl: 'https://picsum.photos/seed/logo11/200/100' },
+    { nameKey: 'client4Name', logoUrl: 'https://picsum.photos/seed/logo12/200/100' },
+    { nameKey: 'client5Name', logoUrl: 'https://picsum.photos/seed/logo13/200/100' },
+    { nameKey: 'client6Name', logoUrl: 'https://picsum.photos/seed/logo14/200/100' },
+    { nameKey: 'client7Name', logoUrl: 'https://picsum.photos/seed/logo15/200/100' },
+    { nameKey: 'client8Name', logoUrl: 'https://picsum.photos/seed/logo16/200/100' },
 ];
