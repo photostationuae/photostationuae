@@ -21,7 +21,6 @@ const Header: React.FC<HeaderProps> = ({ navigate, currentPage, lang, setLang })
         { page: Page.Home, key: 'navHome' },
         { page: Page.MagicMirror, key: 'navMagicMirror' },
         { page: Page.AIBooth, key: 'navAIBooth' },
-        { page: Page.MusicPhotoBooth, key: 'navMusicPhotoBooth' },
         { page: Page.AudioGuestRoom, key: 'navAudioGuestRoom' },
         { page: Page.VideoBooth360, key: 'navVideoBooth360' },
         { page: Page.About, key: 'navAbout' },

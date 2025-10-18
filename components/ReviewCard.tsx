@@ -1,7 +1,8 @@
 import React from 'react';
 import { Review } from '../types';
 import { StarIcon } from './icons/StarIcon';
-import { Language, t } from '../i18n';
+// FIX: Corrected i18n import path for consistency.
+import { Language, t } from '../i18n/index';
 
 interface ReviewCardProps {
     review: Review;

@@ -4,7 +4,8 @@ import { MastercardLogo } from './icons/MastercardLogo';
 import { TabbyLogo } from './icons/TabbyLogo';
 import { TamaraLogo } from './icons/TamaraLogo';
 import { ApplePayLogo } from './icons/ApplePayLogo';
-import { t, Language } from '../i18n';
+// FIX: Corrected i18n import path for consistency.
+import { t, Language } from '../i18n/index';
 import { InstagramIcon } from './icons/InstagramIcon';
 import { FacebookIcon } from './icons/FacebookIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';

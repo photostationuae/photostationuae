@@ -9,7 +9,6 @@ export enum Page {
     AlbumPrinting = 'album-printing',
     LEDScreen = 'led-screen',
     AIBooth = 'ai-booth',
-    MusicPhotoBooth = 'music-photo-booth',
     Clients = 'clients',
     Reviews = 'reviews',
     Contact = 'contact',

@@ -15,7 +15,6 @@ const AlbumPrintingPage: React.FC<BasePageProps> = ({ lang, navigate }) => {
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const imageUrls: string[] = [];
-            // FIX: Iterating over FileList with a for loop and .item(i) to ensure type safety, as the previous method was inferring file as 'unknown'.
             for (let i = 0; i < e.target.files.length; i++) {
                 const file = e.target.files.item(i);
                 if (file) {
@@ -23,11 +22,13 @@ const AlbumPrintingPage: React.FC<BasePageProps> = ({ lang, navigate }) => {
                 }
             }
             setImages(prev => [...prev, ...imageUrls]);
+            setAlbumDesign(null); // Reset design when new images are added
         }
     };
     
     const removeImage = (index: number) => {
         setImages(prev => prev.filter((_, i) => i !== index));
+        setAlbumDesign(null); // Reset design if images change
     };
 
     const handleGenerateDesign = async () => {
@@ -39,7 +40,8 @@ const AlbumPrintingPage: React.FC<BasePageProps> = ({ lang, navigate }) => {
         setError('');
         setAlbumDesign(null);
         try {
-            const design = await generateAlbumLayout(images.length, albumSize, lang);
+            // FIX: Removed unused `lang` argument to match function signature.
+            const design = await generateAlbumLayout(images.length, albumSize);
             setAlbumDesign(design);
         } catch (err) {
             setError(err instanceof Error ? err.message : t(lang, 'albumPrintingError'));
@@ -86,7 +88,7 @@ const AlbumPrintingPage: React.FC<BasePageProps> = ({ lang, navigate }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <button onClick={() => setImages([])} className="mt-4 text-sm text-red-600 hover:underline">{t(lang, 'albumPrintingClear')}</button>
+                                <button onClick={() => { setImages([]); setAlbumDesign(null); }} className="mt-4 text-sm text-red-600 hover:underline">{t(lang, 'albumPrintingClear')}</button>
                             </div>
                         )}
                     </div>
@@ -120,22 +122,11 @@ const AlbumPrintingPage: React.FC<BasePageProps> = ({ lang, navigate }) => {
 
                 {/* Display Album Design */}
                 {albumDesign && (
-                    <div className="mt-12">
-                        <h2 className="text-3xl font-bold text-center mb-8">Your AI-Generated Album Preview</h2>
-                        <div className="space-y-8">
-                            {albumDesign.map((page, pageIndex) => (
-                                <div key={pageIndex} className="bg-white p-4 shadow-lg rounded-md border">
-                                    <p className="text-center text-sm text-gray-500 mb-2">Page {pageIndex + 1}</p>
-                                    {/* This is a simplified preview. A real implementation would be more complex. */}
-                                    <div className="grid grid-cols-2 gap-2">
-                                         {page.imageIndexes.map(imgIndex => (
-                                            <img key={imgIndex} src={images[imgIndex]} alt={`page-${pageIndex}-img-${imgIndex}`} className="w-full object-cover rounded-sm" />
-                                        ))}
-                                    </div>
-                                    <p className="text-center text-xs text-gray-400 mt-2">Layout: {page.layout}</p>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="mt-12 max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                        <h2 className="text-2xl font-semibold text-gray-700 mb-4 text-center">{t(lang, 'albumPreviewTitle')}</h2>
+                        <pre className="bg-gray-100 p-4 rounded-md text-sm overflow-x-auto">
+                            {JSON.stringify(albumDesign, null, 2)}
+                        </pre>
                     </div>
                 )}
             </div>

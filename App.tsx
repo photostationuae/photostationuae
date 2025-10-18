@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Page } from './types';
-import { Language } from './i18n';
+// FIX: Corrected i18n import path for consistency.
+import { Language } from './i18n/index';
 import { AuthProvider } from './contexts/AuthContext';
 
 import Header from './components/Header';
@@ -12,7 +13,6 @@ import MagicMirrorPage from './pages/MagicMirrorPage';
 import AudioGuestRoomPage from './pages/AudioGuestRoomPage';
 import AlbumPrintingPage from './pages/AlbumPrintingPage';
 import AIBoothPage from './pages/AIBoothPage';
-import MusicPhotoBoothPage from './pages/MusicPhotoBoothPage';
 import LEDScreenPage from './pages/LEDScreenPage';
 import ClientsPage from './pages/ClientsPage';
 import ReviewsPage from './pages/ReviewsPage';
@@ -55,8 +55,6 @@ const App: React.FC = () => {
                 return <LEDScreenPage {...props} />;
             case Page.AIBooth:
                 return <AIBoothPage {...props} />;
-            case Page.MusicPhotoBooth:
-                return <MusicPhotoBoothPage {...props} />;
             case Page.Clients:
                 return <ClientsPage {...props} />;
             case Page.Reviews:

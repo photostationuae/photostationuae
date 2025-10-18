@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Language, t, TranslationKey } from '../i18n/index';
+import { services } from '../constants';
 
 const ContactForm: React.FC<{ lang: Language }> = ({ lang }) => {
     const [status, setStatus] = useState('');
@@ -37,6 +38,15 @@ const ContactForm: React.FC<{ lang: Language }> = ({ lang }) => {
              <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">{t(lang, 'contactPhone')}</label>
                 <input type="tel" name="phone" id="phone" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" />
+            </div>
+            <div>
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700">{t(lang, 'contactInterestedIn')}</label>
+                <select id="service" name="service" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500">
+                    <option value="">{t(lang, 'contactSelectProduct')}</option>
+                    {services.map(service => (
+                        <option key={service.titleKey} value={t('en', service.titleKey)}>{t(lang, service.titleKey)}</option>
+                    ))}
+                </select>
             </div>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                  <div>
